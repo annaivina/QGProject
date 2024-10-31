@@ -1,0 +1,5 @@
+/generator/select hepmc
+/generator/hepmc/verbose 0
+/generator/hepmc/open /srv01/agrp/annai/annai/QURK-GLUON/samples_produce/Pythia_Zgjets/500GeVjets/pythia_Zg_pT500_Seed143.root
+/generator/hepmc/first_event 0
+/run/beamOn 1

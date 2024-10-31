@@ -1,0 +1,5 @@
+/generator/select hepmc
+/generator/hepmc/verbose 0
+/generator/hepmc/open /srv01/agrp/annai/annai/QURK-GLUON/samples_produce/Pythia_gg/pythia_1jet_gluon_Pseed14_1000events.hepmc
+/generator/hepmc/first_event 2
+/run/beamOn 1

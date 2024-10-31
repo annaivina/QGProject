@@ -1,0 +1,5 @@
+/generator/select hepmc
+/generator/hepmc/verbose 0
+/generator/hepmc/open /storage/agrp/annai/QURK-GLUON/Pythia_jets_HEPMC3/test_pTHat500_noMPI13246997.root
+/generator/hepmc/first_event 0
+/run/beamOn 1

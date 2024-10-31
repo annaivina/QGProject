@@ -1,0 +1,5 @@
+/generator/select hepmc
+/generator/hepmc/verbose 0
+/generator/hepmc/open /storage/agrp/soybna/Herwig/data/Zqjets500/Zqjets500-S137.root
+/generator/hepmc/first_event 0
+/run/beamOn 1
