@@ -68,7 +68,7 @@ To run this:
 - After successfully preparing the COCOA root files, you must prepare them to be trained on HGPFLOW NN. 
 First, you need to remove cocoa events with no tracks, cells, or clusters. You use code in `scripts/copyTree.c` for this. I took it from Etienne; I know one can do better, but I have no strength for this. Inside the code, just specify the path of the cocoa directory files and write down the names of inputs. Then run it as `root -l scripts/copyTree.c`
 - Now you are almost ready to train HyperGraph; before this, you need to run the segmentation on those files so each event will be divided to be processed faster.
-- For this purpose, you Ask Nilotpal to give you the HGPFlow mini-version
+- For this purpose, you Ask Nilotpal to give you the HGPFlow mini-version. It is supposed to be located here [HGPflow](https://github.com/nilotpal09/HGPflow) 
 - Then, to submit for the segmentation, you use the available in scripts/submit_job_cocoa_chunks_new.py script - this one already has everything set up to process our files (500GeV Zq/g jets)
 
 ### 4. Training and predicting using HGPFLOW 
