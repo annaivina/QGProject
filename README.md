@@ -71,10 +71,15 @@ First, you need to remove cocoa events with no tracks, cells, or clusters. You u
 - For this purpose, you Ask Nilotpal to give you the HGPFlow mini-version
 - Then, to submit for the segmentation, you use the available in scripts/submit_job_cocoa_chunks_new.py script - this one already has everything set up to process our files (500GeV Zq/g jets)
 
-### 4. Training HGPFLOW 
+### 4. Training and predicting using HGPFLOW 
 Congratulations! You have reached the exciting part of the project. Run the training on HGPFlow using our samples (500 GeV jets)
 
 
+### 5. Prepare your predicted HGPFlow outputs and your truth outputs for Q/G classification training
+
+### 6. Train and predict using ParticleNet 
+
+### 7. Check results 
 
 
 
