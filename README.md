@@ -82,4 +82,9 @@ Congratulations! You have reached the exciting part of the project. Run the trai
 ### 7. Check results 
 
 
+## Statistics involved
+
+- We generated Zq and Zg samples using Herwig and Cocoa (399k each)
+- Out of those, we used 100k Zq Pythia and 100k Zg Pythia for Training on HGPflow and 10k Zq Pythia and 10k Zg Pythia for the validation
+- Thus, For predictions and further usage, we will have 289k for Pythia Zq/Zg each and 399k for Herwig Zq/Zg each 
 
