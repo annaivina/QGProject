@@ -75,7 +75,8 @@ First, you need to remove cocoa events with no tracks, cells, or clusters. You u
 ### 4. Training and predicting using HGPFLOW 
 Congratulations! You have reached the exciting part of the project. Run the training on HGPFlow using our samples (500 GeV jets)
 
-Make sure you copy the config files in this git to the git folder where you set up your HGPFLow code. configs --> hgpflow_v2/congifs and pbs_scrip[ts
+Ensure you copy the config files in this git to the git folder where you set up your HGPFLow code. configs --> hgpflow/congifs and hgpflow/pbs_scrips to hgpflow_v2 git folder
+
 - Running the stage 1 training: `python pbs_scripts/submit_job.py -m train -cv configs/model_configs/var_mini.yml -cms1 configs/model_configs/model_stage1_mini.yml -ct configs/train_incidence_200k.yml -gt A6000`
 - Preparation for stage 2: `python pbs_scripts/submit_job.py -m hyperedge_data_prep -i configs/inference_stage1.yml -gt A6000 -mem 3gb --io 20`
 - Running the stage 2 training: `python pbs_scripts/submit_job.py -m train -cms2 configs/model_configs/model_stage2.yml -ct configs/train_hyperedge_200k.yml -gt A6000 -nc 5`  (I did it locally - something didnt work for me, the local code is `python -m hgpflow_v2.train -cms2 configs/model_configs/model_stage2.yml -ct configs/train_hyperedge_200k.yml`
