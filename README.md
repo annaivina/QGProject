@@ -83,6 +83,8 @@ Ensure you copy the config files in this git to the git folder where you set up 
 - Doing the evaluations: 
 Here, in those general configs like train_incidence_200k.yml or train_hyperedge_200k.yml, you need to write your own directory.
 
+In general `Nathalie`, just copy my whole hgpflow folder so you will not need to do anything: in our storage you find ...annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/hgpflow_v2
+
 ### 5. Prepare your predicted HGPFlow outputs and your truth outputs for Q/G classification training
 
 ### 6. Train and predict using ParticleNet 
