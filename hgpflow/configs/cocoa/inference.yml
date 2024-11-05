@@ -1,0 +1,52 @@
+init:
+  detector: COCOA
+
+  gpu: 0
+  precision: medium
+  chunk_size: 100
+  batch_size: 100
+  num_workers: 2
+
+  model:
+    # cv1
+    # config_path_v   : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs2v3xnotransxxxf3t8cn2jg7fvr3/config_v.yml
+    # config_path_ms1 : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs2v3xnotransxxxf3t8cn2jg7fvr3/config_ms1.yml
+    # config_path_ms2 : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs2v3xnotransxxxf3t8cn2jg7fvr3/config_ms2.yml
+    # checkpoint_path : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs2v3xnotransxxxf3t8cn2jg7fvr3/checkpoints/epoch=29-val_total_loss=0.0189.ckpt
+
+    # mini
+    config_path_v   : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xminixs2v3xnotransxxxnioqd44ug/config_v.yml
+    config_path_ms1 : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xminixs2v3xnotransxxxnioqd44ug/config_ms1.yml
+    config_path_ms2 : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xminixs2v3xnotransxxxnioqd44ug/config_ms2.yml
+    checkpoint_path : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xminixs2v3xnotransxxxnioqd44ug/checkpoints/epoch=28-val_total_loss=0.0195.ckpt
+
+  ind_threshold_loose: 0.2
+  ind_threshold_plot: 0.48
+  store_seg: false
+
+items:
+  - info: "dijet test"
+    run_pred: true
+    run_plot: false
+
+    seg_path: /storage/agrp/dreyet/PFlow/samples/dijet/Ntuples_dijet_noID_withSmearing_newpflow_15122023/test_skim_seg_bw0.4.root
+    truth_path: /storage/agrp/dreyet/PFlow/samples/dijet/Ntuples_dijet_noID_withSmearing_newpflow_15122023/test_skim.root
+    pred_path: null
+
+    dir_flag: Ntuples_dijet_noID_withSmearing_22102023
+    n_events: -1
+
+    plots:
+      scatter: {}
+      rel_res: {}
+      confusion: {}
+      cardinality: {}
+      ed: {events: [0,1,2,3,4,5,6,7,8,9]}
+      leading_jet_res: {pt_xrange: [-1, 1], pt_yrange: [0, 6], dR_xrange: [0, 0.1]}
+      leading_jet_res_abs: {pt_xrange: [-50, 50], dR_xrange: [0, 0.1]}
+      leading_two_jet_inv_mass: {xrange: [0, 500], xlabel_flag: "jj"}
+      leading_two_jet_inv_mass_res: {xrange: [-40, 40], xlabel_flag: "jj"}
+      met_res_and_ht_res: {xrange_met: [-60, 60], yrange_met: [0, 4000], xrange_ht: [-0.5, 0.5], yrange_ht: [0, 4000]}
+      eff_fr_purity: {eff_yrange: [0.5, 1], fr_yrange: [0, 0.5], purity_yrange: [0.5, 1]}
+      neutral_and_charged_energy_res: {xrange_neut_e: [-400, 400], xrange_charge_e: [-400, 400]}
+

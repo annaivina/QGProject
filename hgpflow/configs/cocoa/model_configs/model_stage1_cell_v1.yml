@@ -1,0 +1,89 @@
+name: hgpflow_cell_v1
+
+# model part 1
+node_prep_model:
+    type: cell_v1 # cell_v1 | cell_v2 | mini
+
+    n_calo_reg: 6
+    calo_reg_emb_dim: 3
+
+    track_init_net:
+        input_dim: 24
+        output_dim: 128
+        hidden_layers: [128]
+        activation: 'LeakyReLU'
+        norm_layer: 'LayerNorm'
+
+    cell_init_net:
+        input_dim: 10
+        output_dim: 128
+        hidden_layers: [128]
+        activation: 'LeakyReLU'
+        norm_layer: 'LayerNorm'
+
+    pre_node_transformer:
+        embed_dim: 128
+        num_layers: 2
+        mha_config:   
+            enable_flash_attn: True # True | False
+            num_heads: 4
+        dense_config: 
+            hidden_layers: [128]
+            activation: LeakyReLU
+            norm_layer: LayerNorm
+        context_dim: 128 # d_hid
+        out_dim: 126 # we'll cat the [is_track,is_topo] to it
+        # out_dim: 114 # we'll cat the node skip_feat0 to it
+
+    node_transformer:
+        embed_dim: 128
+        num_layers: 4
+        mha_config:   
+            enable_flash_attn: True # True | False
+            num_heads: 4
+        dense_config: 
+            hidden_layers: [128]
+            activation: LeakyReLU
+            norm_layer: LayerNorm
+        context_dim: 128 # d_hid
+        out_dim: 114 # we'll cat the node skip_feat0 to it
+
+
+
+# model part 2
+hg_model:
+    type: iterative_refiner # iterative_refiner | sup_attn
+
+    T_TOTAL: 12
+    T_BPTT: 3
+    N_BPTT: 2
+
+    d_in: 128
+    d_hid: 128
+
+    init_edges: 
+        type: random # random | embeding
+        embedding_dim: 5 # only for type: embedding
+
+    deepset_n:
+        hidden_layers: [256, 256, 128]
+
+    transformer_e:
+        embed_dim: 256
+        num_layers: 1
+        mha_config:   
+            enable_flash_attn: False # True | False
+            num_heads: 4
+        dense_config: 
+            hidden_layers: [128]
+            activation: LeakyReLU
+            norm_layer: LayerNorm
+        context_dim: 128 # d_hid
+        out_dim: 128
+
+    edge_indicator:
+        input_dim: 129
+        output_dim: 1
+        hidden_layers: [256, 128, 32]
+        activation: "LeakyReLU"
+        norm_layer: "LayerNorm"

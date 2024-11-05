@@ -1,0 +1,57 @@
+project_name: hgpflow_v2
+run_name: v1xs2v3xnotrans
+
+device: cuda
+num_devices: 1
+
+train_components: [hyperedge]
+
+config_path_v   : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs1xxxxxoa09y2q30czgps0br1zpts/config_v.yml
+config_path_ms1 : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs1xxxxxoa09y2q30czgps0br1zpts/config_ms1.yml
+checkpoint_ms1  : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs1xxxxxoa09y2q30czgps0br1zpts/checkpoints_copied/epoch=43-val_total_loss=0.0553.ckpt
+
+path_train: /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs1xxxxxoa09y2q30czgps0br1zpts/inference/dijet/stage1_inference_train_skim_seg_bw0.4.root
+path_val  : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v1xs1xxxxxoa09y2q30czgps0br1zpts/inference/dijet/stage1_inference_val_skim_seg_bw0.4.root
+
+resume_from_checkpoint: null
+
+num_epochs: 30
+eval_every_n_epoch: 1
+
+batchsize_train: 256
+batchsize_val: 512
+
+
+reduce_ds_train: -1
+reduce_ds_val: -1
+
+num_workers: 2
+
+learning_rate: 1.0e-4
+# lr_scheduler:
+#     name: CustomLRScheduler
+#     warm_start_epochs: 0.05
+#     cosine_epochs: 0.8
+#     eta_min: 5.0e-5
+#     last_epoch: -1
+
+loss_wts: 
+  ch:
+    pt: 0.0
+    eta: 0.0
+    phi: 0.0
+    class: 0.1
+  neut:
+    ke: 10.0
+    eta: 0.0
+    phi: 0.0
+    class: 0.1
+
+class_based_wts:
+  ch: [1.0, 1.0, 1.0] # [ch, e, mu]
+  neut: [0.68, 0.32] # [nh, ph]
+
+base_root_dir: /storage/agrp/nilotpal/HGPFlow_v2/experiments
+
+train_log_every_n_steps: 10
+apply_truth_ind_mask_on_live_plots: True # stage1 is responsible for correct indicatior

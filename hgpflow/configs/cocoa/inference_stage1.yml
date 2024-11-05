@@ -1,0 +1,33 @@
+init:
+  detector: COCOA
+
+  gpu: 0
+  chunk_size: 64
+  batch_size: 64
+  num_workers: 2
+  precision: medium
+
+  model:
+    config_path_v   : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v3xminixs1xxxlayfgel8z12rxnvfveu/config_v.yml
+    config_path_ms1 : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v3xminixs1xxxlayfgel8z12rxnvfveu/config_ms1.yml
+    config_path_t   : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v3xminixs1xxxlayfgel8z12rxnvfveu/config_t.yml
+    checkpoint_path : /storage/agrp/nilotpal/HGPFlow_v2/experiments/hgpflow_v2/v3xminixs1xxxlayfgel8z12rxnvfveu/checkpoints/epoch=63-val_total_loss=0.0349.ckpt
+
+  ind_threshold_loose: 0.2
+
+
+items:
+  - info: "dijet train"
+
+    seg_path: /storage/agrp/dreyet/PFlow/samples/dijet/Ntuples_dijet_noID_withSmearing_newpflow_15122023/train_skim_seg_bw0.4.root
+    dir_flag: 'dijet'
+    output_path: null
+    n_events: -1
+
+
+  - info: "dijet val"
+
+    seg_path: /storage/agrp/dreyet/PFlow/samples/dijet/Ntuples_dijet_noID_withSmearing_newpflow_15122023/val_skim_seg_bw0.4.root
+    dir_flag: 'dijet'
+    output_path: null
+    n_events: -1

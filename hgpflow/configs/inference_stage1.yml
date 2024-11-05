@@ -1,0 +1,35 @@
+init:
+  detector: COCOA
+
+  gpu: 0
+  chunk_size: 256
+  batch_size: 256
+  num_workers: 9
+  precision: medium
+
+  model:
+    # 200k COCOA Zq+Zg (mod_e_th = 100MeV)
+    config_path_v   : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/config_v.yml
+    config_path_ms1 : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/config_ms1.yml
+    config_path_t   : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/config_t.yml
+    checkpoint_path : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/checkpoints/epoch=75-val_total_loss=0.0704.ckpt
+
+  ind_threshold_loose: 0.2 
+
+
+# 200k
+items:
+  - info: "Zqgpythia train"
+    seg_path: |
+        glob.glob('/storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/500GeVPythiaZg/train/cocoa_Pythia_Zg_chunk_*_seg.root')+glob.glob('/storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/500GeVPythiaZq/train/cocoa_Pythia_Zq_chunk_*_seg.root')    
+    dir_flag: 'Zqgpythia_train'
+    output_path: null
+    n_events: -1
+
+
+  - info: "Zqgpythia val"
+    seg_path: |
+        glob.glob('/storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/500GeVPythiaZg/valid/cocoa_Pythia_Zg_chunk_*_seg.root')+glob.glob('/storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/500GeVPythiaZq/valid/cocoa_Pythia_Zq_chunk_*_seg.root')  
+    dir_flag: 'Zqgpythia_val'
+    output_path: null
+    n_events: -1

@@ -1,0 +1,63 @@
+project_name: hgpflow_v2
+
+device: cuda
+num_devices: 1
+
+train_components: [hyperedge]
+
+
+
+# 200k (mod_e_th = 100mev)
+run_name: cocoapythia500gevxs2
+config_path_v   : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/config_v.yml
+config_path_ms1 : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/config_ms1.yml
+checkpoint_ms1 : /storage/agrp/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/checkpoints/epoch=75-val_total_loss=0.0704.ckpt
+path_train: |
+    glob.glob('/srv01/agrp/annai/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/inference/Zqgpythia_train/*root')
+path_val: |
+    glob.glob('/srv01/agrp/annai/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/hgpflow_v2/cocoapythia500gevxxx2r1w92tnsevw/inference/Zqgpythia_val/*root')
+
+
+
+resume_from_checkpoint: null
+
+num_epochs: 50
+eval_every_n_epoch: 1
+
+batchsize_train: 512
+batchsize_val: 1024
+
+
+reduce_ds_train: -1
+reduce_ds_val: -1
+
+num_workers: 4
+
+learning_rate: 1.0e-4
+lr_scheduler:
+    name: CustomLRScheduler
+    warm_start_epochs: 0.0
+    cosine_epochs: 0.999
+    eta_min: 5.0e-5
+    last_epoch: -1
+
+loss_wts: 
+  ch:
+    pt: 5.0
+    eta: 0.0
+    phi: 0.0
+    class: 0.05
+  neut:
+    ke: 20.0
+    eta: 0.0
+    phi: 0.0
+    class: 0.05
+
+class_based_wts:
+  ch: [1.0, 1.0, 1.0] # [ch, e, mu]
+  neut: [0.71, 0.29] # [nh, ph]
+
+base_root_dir: /srv01/agrp/annai/annai/QURK-GLUON/samples_produce/Cocoa/HGPFLOW_v2/experiments/
+
+train_log_every_n_steps: 25
+apply_truth_ind_mask_on_live_plots: True # stage1 is responsible for correct indicatior
