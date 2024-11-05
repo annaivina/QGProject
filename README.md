@@ -86,10 +86,12 @@ Congratulations! You have reached the exciting part of the project. Run the trai
 ## Samples and Statistics involved
 
 **Samples**
+
 All samples shall be accessible if I have given relevant permissions. 
--- Pythia samples can be found in my work directory under .. annai/QURK-GLUON/samples_produce/Pythia_Zgjets or .. annai/QURK-GLUON/samples_produce/Pythia_Zqjets
--- Cocoa samples are located in .. annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/. Relevant folders are 500GeVPythiaZq/500GeVPythiaZg/500GeVHerwigZq500GeVHerwigZg
--- Inside the cocoa sample directories you will also find the skimmed version oft he samples as well as segmented samples for HGPFlow task in train/valid/test folders 
+
+- Pythia samples can be found in my work directory under .. annai/QURK-GLUON/samples_produce/Pythia_Zgjets or .. annai/QURK-GLUON/samples_produce/Pythia_Zqjets
+- Cocoa samples are located in .. annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/. Relevant folders are 500GeVPythiaZq/500GeVPythiaZg/500GeVHerwigZq500GeVHerwigZg
+- Inside the cocoa sample directories you will also find the skimmed version oft he samples as well as segmented samples for HGPFlow task in train/valid/test folders 
 
 **Statistics**
 - We generated Zq and Zg samples using Herwig and Cocoa (399k each)
