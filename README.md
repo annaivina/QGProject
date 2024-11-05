@@ -70,6 +70,7 @@ First, you need to remove cocoa events with no tracks, cells, or clusters. You u
 - Now you are almost ready to train HyperGraph; before this, you need to run the segmentation on those files so each event will be divided to be processed faster.
 - For this purpose, you Ask Nilotpal to give you the HGPFlow mini-version. It is supposed to be located here [HGPflow](https://github.com/nilotpal09/HGPflow) 
 - Then, to submit for the segmentation, you use the available in scripts/submit_job_cocoa_chunks_new.py script - this one already has everything set up to process our files (500GeV Zq/g jets)
+- Here, is_inference=False and mod_e_th = 0.1 for train and validation samples, or else is_inference=True and mod_e_th  = 0 
 
 ### 4. Training and predicting using HGPFLOW 
 Congratulations! You have reached the exciting part of the project. Run the training on HGPFlow using our samples (500 GeV jets)
@@ -82,8 +83,15 @@ Congratulations! You have reached the exciting part of the project. Run the trai
 ### 7. Check results 
 
 
-## Statistics involved
+## Samples and Statistics involved
 
+**Samples**
+All samples shall be accessible if I have given relevant permissions. 
+-- Pythia samples can be found in my work directory under .. annai/QURK-GLUON/samples_produce/Pythia_Zgjets or .. annai/QURK-GLUON/samples_produce/Pythia_Zqjets
+-- Cocoa samples are located in .. annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/. Relevant folders are 500GeVPythiaZq/500GeVPythiaZg/500GeVHerwigZq500GeVHerwigZg
+-- Inside the cocoa sample directories you will also find the skimmed version oft he samples as well as segmented samples for HGPFlow task in train/valid/test folders 
+
+**Statistics**
 - We generated Zq and Zg samples using Herwig and Cocoa (399k each)
 - Out of those, we used 100k Zq Pythia and 100k Zg Pythia for Training on HGPflow and 10k Zq Pythia and 10k Zg Pythia for the validation
 - Thus, For predictions and further usage, we will have 289k for Pythia Zq/Zg each and 399k for Herwig Zq/Zg each 
