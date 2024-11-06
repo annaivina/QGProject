@@ -115,7 +115,8 @@ All samples shall be accessible if I have given relevant permissions.
 
 - Pythia samples can be found in my work directory under .. annai/QURK-GLUON/samples_produce/Pythia_Zgjets or .. annai/QURK-GLUON/samples_produce/Pythia_Zqjets
 - Cocoa samples are located in .. annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/. Relevant folders are 500GeVPythiaZq/500GeVPythiaZg/500GeVHerwigZq500GeVHerwigZg
-- Inside the cocoa sample directories you will also find the skimmed version oft he samples as well as segmented samples for HGPFlow task in train/valid/test folders 
+- Inside the cocoa sample directories, you will also find the skimmed version of the samples as well as segmented samples for HGPFlow task in train/valid/test folders
+- Inside my weizmann storage, there are also Herwig and Pythia samples from the original paper you can use it as well: annai/QURK-GLUON/QG_herwig or annai/QURK-GLUON/QG_pythia
 
 **Statistics**
 - We generated Zq and Zg samples using Herwig and Cocoa (399k each)
