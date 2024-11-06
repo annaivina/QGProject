@@ -90,12 +90,22 @@ In general `Nathalie`, just copy my whole hgpflow folder so you will not need to
 
 ### 5. Prepare your predicted HGPFlow outputs and your truth outputs for Q/G classification training
 
-After you have the predictions you need to make npz files to be processed later by QG processor. YOu use  
+After you have the predictions, you need to make npz files to be processed later by QG processor. For that you can use ipynp `scripts/performance_save.ipynb`
+- There are a few things here. This notebook was created for hgpflow_full and not the mini version. I had to do a bunch of things in the performance code to save the needed information correctly. If Nilotpal says that it ok, you can use the same code as you have the prediction files. I have already modified it a bit because there was a problem with event_offset. I ran it on new predictions it looks ok. I think you might want to change the pt of the jet which you save (~400-800GeV) maybe? up to you. This notebook also will shuffle the files between pythia Zq and Zg - please dont miss this step.
+
+- Now, the shuffled npz files need to be processed to match the Q/G format. The file name you need is `scripts/convert_qg_datasets_new_hgpflow.py` - after this step you are ready to train the hgpflow inputs on QG script.
+- Additionally, you maybe would like to do the truth jet training. For this perpose you need to convert root->npz-->QGformat as in hgflow cas. But now you use ipynb `scripts/make_datasets.ipynb` You can just hadd all root files you have and process one file there. After that you need to use `scripts/convert_qg_datasets_new.py`
 
 ### 6. Train and predict using ParticleNet 
 
-### 7. Check results 
+Congratulations. Now, you are finally ready to train on ParticleNet. So, I have made some packages that will take all their functions and their libraries in one place and train the models. Initially, I combined those two: [PartikleTransformer]https://github.com/jet-universe/particle_transformer/ (the new and old models setup) and [WeaverCore]https://github.com/hqucms/weaver-core - this is the place where the models and all configurations are actually stored. I failed adequately set up the Wevercore, got pissed and just made a new big package. It works well for our PaticleNet model, which is what we need. If you find something that needs to be added, go ahead and change it. 
 
+- you can use this git version of my new code here to train and test the files: [PartNet_Local]https://github.com/annaivina/PartNet_Local/tree/main
+- What you need to do is very simple: you need to create a submit script for training (or you can use one of the existing ones you can check their names easdy to understand). 
+- The most important thing you need to choose is what you want to train on: only kin or kin+pid, PartikleNet or PartikleTransformer model. That's about it
+- If, for whatever reason, this will not work, you can always go to my storage directory at Weizmann and see ... annai/QURK-GLUON/PartNet_Local
+### 7. Check results 
+-- You can use rates.ipynb in my ParticleNet folder or you can create your own 
 
 ## Samples and Statistics involved
 
